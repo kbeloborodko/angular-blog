@@ -1,6 +1,9 @@
 # WebStorm specific files
 .idea
 
+# Build folder
+dist
+
 # Logs
 logs
 *.log

@@ -23,7 +23,9 @@ gulp.task('todo', function() {
 });
 
 gulp.task('build', ['todo'], function() {
-  //TODO
+  return gulp.src(paths.entry)
+    .pipe(webpack( require('./webpack.config.js') ))
+    .pipe(gulp.dest(paths.dest));
   /*
   fill this task out to take in entry file
   and build using the webpack plugin.
