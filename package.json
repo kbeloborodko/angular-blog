@@ -8,7 +8,7 @@
     "start": "gulp"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "angular": "^1.4.3",
     "angular-animate": "^1.4.3",
