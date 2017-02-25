@@ -12,4 +12,4 @@ class BlogController {
   }
 }
 
-export {BlogController}
+export {BlogController};
