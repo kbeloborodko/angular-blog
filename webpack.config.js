@@ -13,13 +13,10 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.styl$/, loader: 'css-loader!style-loader!stylus-loader' },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: 'babel-loader?stage=1'
-      }
+      { test: /\.html$/, loader: 'raw' },
+      { test: /\.styl$/, loader: 'style!css!stylus' },
+      { test: /\.css/, loader: 'style!css' },
+      { test: /\.js$/, loader: 'babel?stage=1', exclude: [/client\/lib/, /node_modules/, /\.spec\.js/] }
     ]
   },
 
