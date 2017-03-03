@@ -1,8 +1,6 @@
 // Karma configuration
 // Generated on Fri Jul 17 2015 22:40:09 GMT-0700 (PDT)
 
-var webpack = require('webpack');
-
 module.exports = function(config) {
   config.set({
 
@@ -36,28 +34,19 @@ module.exports = function(config) {
     webpack :{
         devtool: 'inline-source-map',
         module: {
-          loaders: [
-            { test: /\.html$/, loader: 'raw-loader' },
-            { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
-            { test: /\.css/, loader: 'style-loader!css-loader' },
-            {
-              test: /\.js$/, loader: 'babel-loader',
-              exclude: [/client\/lib/, /node_modules/],
-              query: {
-                presets: ['es2015']
-              }
-            }
-          ]
+            loaders: [
+                /* add the appropriate loaders */
+                /* almost the same as the webpack.config */
+                { test: /\.html$/, loader: 'raw' },
+                { test: /\.styl$/, loader: 'style!css!stylus' },
+                { test: /\.css/, loader: 'style!css' },
+                { test: /\.js$/, loader: 'babel?stage=1', exclude: [/client\/lib/, /node_modules/] }
+            ]
         },
-        plugins: [
-          new webpack.LoaderOptionsPlugin({
-            options: {
-              stylus: {
-                use: [require('jeet')(), require('rupture')()]
-              }
-            }
-          })
-        ]
+
+        stylus: {
+            use: [require('jeet')(), require('rupture')()]
+        }
     },
 
     webpackServer: {

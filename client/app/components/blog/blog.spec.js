@@ -13,7 +13,7 @@ describe('Blog', () => {
     makeController = (injectables) => {
       return new BlogController(injectables);
     };
-  }));
+  }))
 
   describe('module', () => {
     it('should have an appropriate name', () => {
@@ -35,7 +35,7 @@ describe('Blog', () => {
       expect(ddo.controller).to.equal(BlogController);
     });
 
-    it('should have an isolated scope', () => {
+    it('should have an isolate scope', () => {
       expect(ddo.scope).to.be.an('object');
     });
 
@@ -45,9 +45,8 @@ describe('Blog', () => {
   });
 
   describe('controller', ()=> {
-    it('should have blog posts', () => {
+    it('should have blog posts', ()=> {
       const controller = makeController();
-
       expect(controller.posts).to.be.an('array');
       expect(controller.posts[0]).to.have.property('author');
       expect(controller.posts[0]).to.have.property('title');
@@ -55,8 +54,6 @@ describe('Blog', () => {
   });
 
   describe('template', ()=> {
-    it('should have vm', () => {
-      expect(template).to.match(/{{\s?vm\.message\s?}}/g);
-    });
+
   });
 });

@@ -13,16 +13,10 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
-      { test: /\.css/, loader: 'style-loader!css-loader' },
-      {
-        test: /\.js$/, loader: 'babel-loader',
-        exclude: [/client\/lib/, /node_modules/, /\.spec\.js/],
-        query: {
-          presets: ['es2015']
-        }
-      }
+      { test: /\.html$/, loader: 'raw' },
+      { test: /\.styl$/, loader: 'style!css!stylus' },
+      { test: /\.css/, loader: 'style!css' },
+      { test: /\.js$/, loader: 'babel?stage=1', exclude: [/client\/lib/, /node_modules/, /\.spec\.js/] }
     ]
   },
 
