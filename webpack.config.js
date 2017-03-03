@@ -1,8 +1,8 @@
 /*
-config for webpack. Will be used in
-the Gulpfile for building our app.
-Does not need gulp in order to do so,
-but we use gulp to orchestrate
+ config for webpack. Will be used in
+ the Gulpfile for building our app.
+ Does not need gulp in order to do so,
+ but we use gulp to orchestrate
  */
 module.exports = {
   output: {
@@ -13,10 +13,16 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.html$/, loader: 'raw' },
-      { test: /\.styl$/, loader: 'style!css!stylus' },
-      { test: /\.css/, loader: 'style!css' },
-      { test: /\.js$/, loader: 'babel', exclude: [/client\/lib/, /node_modules/, /\.spec\.js/] }
+      { test: /\.html$/, loader: 'raw-loader' },
+      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
+      { test: /\.css/, loader: 'style-loader!css-loader' },
+      {
+        test: /\.js$/, loader: 'babel-loader',
+        exclude: [/client\/lib/, /node_modules/, /\.spec\.js/],
+        query: {
+          presets: ['es2015']
+        }
+      }
     ]
   },
 

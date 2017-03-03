@@ -1,6 +1,8 @@
 // Karma configuration
 // Generated on Fri Jul 17 2015 22:40:09 GMT-0700 (PDT)
 
+var webpack = require('webpack');
+
 module.exports = function(config) {
   config.set({
 
@@ -15,7 +17,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        { pattern: 'spec.bundle.js', watched: false }
+      { pattern: 'spec.bundle.js', watched: false }
     ],
 
 
@@ -28,29 +30,38 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     // use webpack and sourcemaps to preprocess the spec bundle file
     preprocessors: {
-        'spec.bundle.js': ['webpack', 'sourcemap']
+      'spec.bundle.js': ['webpack', 'sourcemap']
     },
 
     webpack :{
-        devtool: 'inline-source-map',
-        module: {
-            loaders: [
-                /* add the appropriate loaders */
-                /* almost the same as the webpack.config */
-                { test: /\.html$/, loader: 'raw' },
-                { test: /\.styl$/, loader: 'style!css!stylus' },
-                { test: /\.css/, loader: 'style!css' },
-                { test: /\.js$/, loader: 'babel?stage=1', exclude: [/client\/lib/, /node_modules/] }
-            ]
-        },
-
-        stylus: {
-            use: [require('jeet')(), require('rupture')()]
-        }
+      devtool: 'inline-source-map',
+      module: {
+        loaders: [
+          { test: /\.html$/, loader: 'raw-loader' },
+          { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
+          { test: /\.css/, loader: 'style-loader!css-loader' },
+          {
+            test: /\.js$/, loader: 'babel-loader',
+            exclude: [/client\/lib/, /node_modules/],
+            query: {
+              presets: ['es2015']
+            }
+          }
+        ]
+      },
+      plugins: [
+        new webpack.LoaderOptionsPlugin({
+          options: {
+            stylus: {
+              use: [require('jeet')(), require('rupture')()]
+            }
+          }
+        })
+      ]
     },
 
     webpackServer: {
-        noInfo: true
+      noInfo: true
     },
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -84,4 +95,4 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true
   })
-}
+};
