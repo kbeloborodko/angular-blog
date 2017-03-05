@@ -9,4 +9,5 @@ export const <%= name %> = angular.module('<%= name %>', [uiRouter])
       template: '<<%- name %>></<%- name %>>'
     })
   })
+  .directive('<%= name %>', <%= name %>Directive)
 
