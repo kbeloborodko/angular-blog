@@ -24,3 +24,5 @@ class AdminController {
 
 AdminController.$inject = ['Posts', '$state'];
 
+export {AdminController};
+
