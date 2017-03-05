@@ -44,12 +44,6 @@ describe('Blog Post', () => {
     });
   });
 
-  describe('controller', ()=> {
-    it('should have blog posts', ()=> {
-      const controller = makeController();
-    });
-  });
-
   describe('template', ()=> {
 
   });

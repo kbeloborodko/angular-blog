@@ -44,12 +44,6 @@ describe('Admin', () => {
     });
   });
 
-  describe('controller', ()=> {
-    it('should have admin elements', ()=> {
-      const controller = makeController();
-    });
-  });
-
   describe('template', ()=> {
 
   });
