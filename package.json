@@ -28,6 +28,8 @@
     "css-loader": "^0.26.2",
     "file-loader": "^0.10.1",
     "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^4.0.0",
     "gulp-todoist": "0.0.2",
     "karma": "^1.5.0",
     "karma-chai": "^0.1.0",
@@ -44,6 +46,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.5.0",
     "webpack": "^2.2.1",
-    "webpack-stream": "^3.2.0"
+    "webpack-stream": "^3.2.0",
+    "yargs": "^7.0.1"
   }
 }
