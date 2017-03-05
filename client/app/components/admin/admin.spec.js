@@ -3,11 +3,11 @@ import {adminDirective} from './admin.directive';
 import template from './admin.html';
 import {AdminController} from './admin.controller';
 
-describe('Blog', () => {
+describe('Admin', () => {
   let $rootScope;
   let makeController;
 
-  beforeEach(window.module(blog.name));
+  beforeEach(window.module(admin.name));
   beforeEach(inject(_$rootScope_ => {
     $rootScope = _$rootScope_;
     makeController = (injectables) => {
@@ -32,7 +32,7 @@ describe('Blog', () => {
     });
 
     it('should have the right controller', () => {
-      expect(ddo.controller).to.equal(BlogController);
+      expect(ddo.controller).to.equal(AdminController);
     });
 
     it('should have an isolate scope', () => {
@@ -45,7 +45,7 @@ describe('Blog', () => {
   });
 
   describe('controller', ()=> {
-    it('should have blog posts', ()=> {
+    it('should have admin elements', ()=> {
       const controller = makeController();
     });
   });

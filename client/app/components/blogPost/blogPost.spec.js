@@ -7,7 +7,7 @@ describe('Blog Post', () => {
   let $rootScope;
   let makeController;
 
-  beforeEach(window.module(blog.name));
+  beforeEach(window.module(blogPost.name));
   beforeEach(inject(_$rootScope_ => {
     $rootScope = _$rootScope_;
     makeController = (injectables) => {
