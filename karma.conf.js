@@ -38,8 +38,9 @@ module.exports = function(config) {
       module: {
         loaders: [
           { test: /\.html$/, loader: 'raw-loader' },
-          { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader'},
+          { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' },
           { test: /\.css/, loader: 'style-loader!css-loader' },
+          { test: /\.(png|jpg|jpeg)$/, loader: 'file' },
           {
             test: /\.js$/, loader: 'babel-loader',
             exclude: [/client\/lib/, /node_modules/],
